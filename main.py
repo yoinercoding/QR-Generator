@@ -1,13 +1,13 @@
-import subprocess
+import subprocess as sub
 import wifi_qrcode_generator as qr
 
 try:
-    id = subprocess.check_output(['netsh', 'wlan', 'show', 'interfaces']).decode('utf-8').split('\n')
+    id = sub.check_output(['netsh', 'wlan', 'show', 'interfaces']).decode('utf-8').split('\n')
      
     id_results = str([b.split(":")[1][1:-1]
                       for b in id if "Profile" in b])[2:-3]
  
-    password = subprocess.check_output(
+    password = sub.check_output(
         ['netsh', 'wlan', 'show', 'profiles',
          id_results, 'key=clear']).decode('utf-8').split('\n')
      
