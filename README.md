@@ -1,1 +1,1 @@
-# qrGenerate
+# Wifi QR Generator
